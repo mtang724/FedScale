@@ -116,3 +116,9 @@ Please submit [issues](https://github.com/SymbioticLab/FedScale/issues) or [pull
 
 If you have any questions or comments, please join our [Slack](https://join.slack.com/t/fedscale/shared_invite/zt-uzouv5wh-ON8ONCGIzwjXwMYDC2fiKw) channel, or email us ([fedscale@googlegroups.com](mailto:fedscale@googlegroups.com)). 
 
+## Note to add one new dataset
+
+- Create data mapping file -> train.csv, test.csv
+- Create data loader -> under fedscale.dataloaders
+- Add init dataset in fllibs.py
+- Add outputClass to fllibs.py

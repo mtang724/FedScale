@@ -110,8 +110,7 @@ os.environ['MASTER_PORT'] = parser.args.ps_port
 
 
 outputClass = {'Mnist': 10, 'cifar10': 10, "imagenet": 1000, 'emnist': 47, 'amazon': 5,
-               'openImg': 596, 'google_speech': 35, 'femnist': 62, 'yelp': 5, 'inaturalist': 1010
-               }
+               'openImg': 596, 'google_speech': 35, 'femnist': 62, 'yelp': 5, 'inaturalist': 1010, 'WISDM': 6, 'MHEALTH':13}
 
 
 def init_model():
@@ -384,9 +383,24 @@ def init_dataset():
                                               normalize=True,
                                               speed_volume_perturb=False,
                                               spec_augment=False)
+        elif parser.args.data_set == 'WISDM':
+            from fedscale.dataloaders.wisdm import WISDM
+
+            train_dataset = WISDM(
+                parser.args.data_dir, dataset='train')
+            test_dataset = WISDM(
+                parser.args.data_dir, dataset='test')
+        
+        elif parser.args.data_set == 'MHEALTH':
+            from fedscale.dataloaders.mhealth import MHEALTH
+
+            train_dataset = MHEALTH(
+                parser.args.data_dir, dataset='train')
+            test_dataset = MHEALTH(
+                parser.args.data_dir, dataset='test')
         else:
             logging.info('DataSet must be {}!'.format(
-                ['Mnist', 'Cifar', 'openImg', 'blog', 'stackoverflow', 'speech', 'yelp']))
+                ['Mnist', 'Cifar', 'openImg', 'blog', 'stackoverflow', 'speech', 'yelp', 'WISDM', 'MHEALTH']))
             sys.exit(-1)
 
     return train_dataset, test_dataset

@@ -9,14 +9,14 @@ import torch
 import torch.nn.functional as F
 from resnet_heterofl import resnet18
 
-import fedscale.core.config_parser as parser
+from fedscale.core.config_parser import args
 
 
 def init_model():
     global tokenizer
     
     logging.info("Initializing the model ...")
-    if parser.args.model == 'resnet_heterofl':
+    if args.model == 'resnet_heterofl':
         model = resnet18()
     
     return model
