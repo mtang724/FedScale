@@ -110,7 +110,7 @@ os.environ['MASTER_PORT'] = parser.args.ps_port
 
 
 outputClass = {'Mnist': 10, 'cifar10': 10, "imagenet": 1000, 'emnist': 47, 'amazon': 5,
-               'openImg': 596, 'google_speech': 35, 'femnist': 62, 'yelp': 5, 'inaturalist': 1010, 'WISDM': 6, 'MHEALTH':13}
+               'openImg': 596, 'google_speech': 35, 'femnist': 62, 'yelp': 5, 'inaturalist': 1010, 'WISDM': 6, 'MHEALTH':13, 'MHEALTH_MISSING':13}
 
 
 def init_model():
@@ -391,7 +391,7 @@ def init_dataset():
             test_dataset = WISDM(
                 parser.args.data_dir, dataset='test')
         
-        elif parser.args.data_set == 'MHEALTH':
+        elif parser.args.data_set.startswith('MHEALTH'):
             from fedscale.dataloaders.mhealth import MHEALTH
 
             train_dataset = MHEALTH(
