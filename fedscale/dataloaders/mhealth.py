@@ -50,8 +50,8 @@ class MHEALTH():
             line_count = 0
             for row in csv_reader:
                 if line_count != 0:
-                    # print(row[1:-2])
-                    features = [float(x) for x in row[1:-2]] 
+                    # print(row[1:-1])
+                    features = [float(x) for x in row[1:-1]] 
                     datas.append(torch.FloatTensor(features))
                     labels.append(int(row[-1]))
                 line_count += 1

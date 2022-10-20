@@ -110,7 +110,8 @@ os.environ['MASTER_PORT'] = parser.args.ps_port
 
 
 outputClass = {'Mnist': 10, 'cifar10': 10, "imagenet": 1000, 'emnist': 47, 'amazon': 5,
-               'openImg': 596, 'google_speech': 35, 'femnist': 62, 'yelp': 5, 'inaturalist': 1010, 'WISDM': 6, 'MHEALTH':13, 'MHEALTH_MISSING':13}
+               'openImg': 596, 'google_speech': 35, 'femnist': 62, 'yelp': 5, 'inaturalist': 1010, 
+               'WISDM': 6, 'MHEALTH':13, 'MHEALTH_MISSING':13, 'PAMAP2': 25, 'PAMAP2_MISSING': 25}
 
 
 def init_model():
@@ -398,9 +399,16 @@ def init_dataset():
                 parser.args.data_dir, dataset='train')
             test_dataset = MHEALTH(
                 parser.args.data_dir, dataset='test')
+        elif parser.args.data_set.startswith('PAMAP2'):
+            from fedscale.dataloaders.pamap2 import PAMAP2
+
+            train_dataset = PAMAP2(
+                parser.args.data_dir, dataset='train')
+            test_dataset = PAMAP2(
+                parser.args.data_dir, dataset='test')
         else:
             logging.info('DataSet must be {}!'.format(
-                ['Mnist', 'Cifar', 'openImg', 'blog', 'stackoverflow', 'speech', 'yelp', 'WISDM', 'MHEALTH']))
+                ['Mnist', 'Cifar', 'openImg', 'blog', 'stackoverflow', 'speech', 'yelp', 'WISDM', 'MHEALTH', 'PAMAP2']))
             sys.exit(-1)
 
     return train_dataset, test_dataset
