@@ -111,7 +111,7 @@ os.environ['MASTER_PORT'] = parser.args.ps_port
 
 outputClass = {'Mnist': 10, 'cifar10': 10, "imagenet": 1000, 'emnist': 47, 'amazon': 5,
                'openImg': 596, 'google_speech': 35, 'femnist': 62, 'yelp': 5, 'inaturalist': 1010, 
-               'WISDM': 6, 'MHEALTH':13, 'MHEALTH_MISSING':13, 'PAMAP2': 13, 'PAMAP2_MISSING': 13}
+               'WISDM': 6, 'MHEALTH':13, 'MHEALTH_MISSING':13, 'PAMAP2': 25, 'PAMAP2_MISSING': 25}
 
 
 def init_model():
