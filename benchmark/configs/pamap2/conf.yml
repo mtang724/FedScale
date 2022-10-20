@@ -31,7 +31,7 @@ setup_commands:
 job_conf: 
     - job_name: PAMAP2_demo                   # Generate logs under this folder: log_path/job_name/time_stamp
     - log_path: $FEDSCALE_HOME/benchmark # Path of log files
-    - num_participants: 10                  # Number of participants per round, we use K=100 in our paper, large K will be much slower
+    - num_participants: 5                  # Number of participants per round, we use K=100 in our paper, large K will be much slower
     - data_set: PAMAP2                     # Dataset: openImg, google_speech, stackoverflow
     - data_dir: $FEDSCALE_HOME/benchmark/dataset/data/PAMAP2    # Path of the dataset
     - data_map_file: $FEDSCALE_HOME/benchmark/dataset/data/PAMAP2/client_data_mapping/train.csv              # Allocation of data to each client, turn to iid setting if not provided
@@ -44,8 +44,8 @@ job_conf:
     - num_loaders: 2
     - local_steps: 5
     - learning_rate: 0.05
-    - batch_size: 20
-    - test_bsz: 20
+    - batch_size: 128
+    - test_bsz: 128
     - num_classes: 25
     - input_dim: 53
     - gradient_policy : FedAvg
