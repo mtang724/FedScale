@@ -29,12 +29,12 @@ setup_commands:
 # Default parameters are specified in config_parser.py, wherein more description of the parameter can be found
 
 job_conf: 
-    - job_name: MHEALTH_demo                   # Generate logs under this folder: log_path/job_name/time_stamp
+    - job_name: MHEALTH_MISSING_demo                   # Generate logs under this folder: log_path/job_name/time_stamp
     - log_path: $FEDSCALE_HOME/benchmark # Path of log files
     - num_participants: 50                  # Number of participants per round, we use K=100 in our paper, large K will be much slower
-    - data_set: MHEALTH                     # Dataset: openImg, google_speech, stackoverflow
-    - data_dir: $FEDSCALE_HOME/benchmark/dataset/data/MHEALTH    # Path of the dataset
-    - data_map_file: $FEDSCALE_HOME/benchmark/dataset/data/MHEALTH/client_data_mapping/train.csv              # Allocation of data to each client, turn to iid setting if not provided
+    - data_set: MHEALTH_MISSING                     # Dataset: openImg, google_speech, stackoverflow
+    - data_dir: $FEDSCALE_HOME/benchmark/dataset/data/MHEALTH_MISSING    # Path of the dataset
+    - data_map_file: $FEDSCALE_HOME/benchmark/dataset/data/MHEALTH_MISSING/client_data_mapping/train.csv              # Allocation of data to each client, turn to iid setting if not provided
     - device_conf_file: $FEDSCALE_HOME/benchmark/dataset/data/device_info/client_device_capacity     # Path of the client trace
     - device_avail_file: $FEDSCALE_HOME/benchmark/dataset/data/device_info/client_behave_trace
     - model: lr             # NOTE: Please refer to our model zoo README and use models for these small image (e.g., 32x32x3) inputs
