@@ -49,4 +49,5 @@ job_conf:
     - test_bsz: 128
     - num_classes: 25
     - input_dim: 50
+    - gradient_policy : FedAvg
     - use_cuda: True
