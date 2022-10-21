@@ -41,12 +41,11 @@ job_conf:
 #    - model_zoo: fedscale-zoo
     - eval_interval: 10                     # How many rounds to run a testing on the testing set
     - rounds: 200                          # Number of rounds to run this training. We use 1000 in our paper, while it may converge w/ ~400 rounds
-    - num_loaders: 2
+    - num_loaders: 1
     - local_steps: 5
     - learning_rate: 0.05
-    - batch_size: 20
-    - test_bsz: 20
+    - batch_size: 64
+    - test_bsz: 64
     - num_classes: 25
     - input_dim: 53
-    - gradient_policy : FedAvg
     - use_cuda: True

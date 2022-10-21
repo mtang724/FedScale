@@ -48,6 +48,6 @@ job_conf:
     - batch_size: 20
     - test_bsz: 20
     - num_classes: 13
+    - gradient_policy: fed-prox
     - input_dim: 23
-    - gradient_policy : FedAvg
     - use_cuda: True
